@@ -23,7 +23,14 @@ public class Program
         //Desafio007.Executar();
         //Desafio008.Executar();
         //Desafio009.Executar();
-        Desafio010.Executar();
+        //Desafio010.Executar();
+
+        //Desafio003v2.Executar();
+
+        //LacosDeRepeticao.Executar();
+
+        //VetoresListas.Executar();
+        Desafio014.Executar();
 
     }
 
