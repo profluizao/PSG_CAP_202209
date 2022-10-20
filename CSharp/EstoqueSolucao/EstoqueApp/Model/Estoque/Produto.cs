@@ -5,7 +5,7 @@ using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EstoqueApp.Model
+namespace EstoqueApp.Model.Estoque
 {
     public class Produto : BaseEstoque
     {
