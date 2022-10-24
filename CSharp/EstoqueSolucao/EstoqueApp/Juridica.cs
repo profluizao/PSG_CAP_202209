@@ -26,14 +26,23 @@ namespace EstoqueApp
             this.razaoSocial = razaoSocial;
         }
 
+        //public override void Imprimir()
+        //{
+        //    Console.WriteLine("{0}", this.codigo);
+        //    Console.WriteLine("{0}", this.email);
+        //    Console.WriteLine("{0}", this.telefone);
+
+        //    Console.WriteLine("{0}", this.cnpj);
+        //    Console.WriteLine("{0}", this.razaoSocial);
+        //}
+
         public override void Imprimir()
         {
-            Console.WriteLine("{0}", this.codigo);
-            Console.WriteLine("{0}", this.email);
-            Console.WriteLine("{0}", this.telefone);
-
+            base.Imprimir();
+            Console.WriteLine("Informações na classe Juridica:");
             Console.WriteLine("{0}", this.cnpj);
             Console.WriteLine("{0}", this.razaoSocial);
+            Console.WriteLine("-------------------------------");
         }
 
         public override Ancestral Clone()

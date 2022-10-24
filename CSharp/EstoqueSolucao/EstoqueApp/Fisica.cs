@@ -24,14 +24,14 @@ namespace EstoqueApp
         public string Nome { get => nome; set => nome = value; }
         public string Cpf { get => cpf; set => cpf = value; }
 
+
         public override void Imprimir()
         {
-            Console.WriteLine("{0}", this.codigo);
-            Console.WriteLine("{0}", this.email);
-            Console.WriteLine("{0}", this.telefone);
-
-            Console.WriteLine("{0}", this.cpf);
-            Console.WriteLine("{0}", this.nome);
+            base.Imprimir();
+            Console.WriteLine("Informações na classe Fisica:");
+            Console.WriteLine("CPF: {0}", this.cpf);
+            Console.WriteLine("Nome: {0}", this.nome);
+            Console.WriteLine("-------------------------------");
         }
 
         public override Ancestral Clone()

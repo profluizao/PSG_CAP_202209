@@ -27,7 +27,12 @@ namespace EstoqueApp
             this.email = email;
         }
 
-        public abstract void Imprimir();
-
+        public virtual void Imprimir()
+        {
+            Console.WriteLine("Informações na classe Pessoa:");
+            Console.WriteLine("Codigo: {0}", this.codigo);
+            Console.WriteLine("E-mail: {0}", this.email);
+            Console.WriteLine("Tel.:{0}", this.telefone);
+        }
     }
 }
