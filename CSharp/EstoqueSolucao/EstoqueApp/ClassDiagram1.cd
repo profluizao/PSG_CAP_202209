@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="EstoqueApp.Ancestral">
+    <Position X="2.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAEAAAABAAAAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>Ancestral.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EstoqueApp.Pessoa">
+    <Position X="2.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAgSAAAIAgAAAAAAAAAAAABAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Pessoa.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EstoqueApp.Fisica">
+    <Position X="1.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAIAAAAGAABA=</HashCode>
+      <FileName>Fisica.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EstoqueApp.Juridica">
+    <Position X="3.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAAAAAAAQAAAAEAAABAAAAAAAAAAAADA=</HashCode>
+      <FileName>Juridica.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
