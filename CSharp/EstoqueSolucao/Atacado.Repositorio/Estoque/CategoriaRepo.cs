@@ -21,7 +21,7 @@ namespace Atacado.Repositorio.Estoque
 
         public override Categoria Create(Categoria instancia)
         {
-            throw new NotImplementedException();
+            return this.contexto.Categorias.Add(instancia);
         }
 
         public override Categoria Delete(int chave)
