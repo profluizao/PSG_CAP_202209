@@ -1,4 +1,4 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32929.385
@@ -24,6 +24,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atacado.Repositorio", "Atacado.Repositorio\Atacado.Repositorio.csproj", "{75815D85-0900-467D-BA83-09BB367C925D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Atacado.Servico", "Atacado.Servico\Atacado.Servico.csproj", "{CC3D284F-BBB1-49E6-B909-F51ACA97BF59}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercicios", "Exercicios\Exercicios.csproj", "{2A221FBB-E01E-4667-8030-2D02EAF65D0E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,11 +65,16 @@ Global
 		{CC3D284F-BBB1-49E6-B909-F51ACA97BF59}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CC3D284F-BBB1-49E6-B909-F51ACA97BF59}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CC3D284F-BBB1-49E6-B909-F51ACA97BF59}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A221FBB-E01E-4667-8030-2D02EAF65D0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A221FBB-E01E-4667-8030-2D02EAF65D0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A221FBB-E01E-4667-8030-2D02EAF65D0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A221FBB-E01E-4667-8030-2D02EAF65D0E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{2A221FBB-E01E-4667-8030-2D02EAF65D0E} = {2B4D10BF-B4E2-42EC-8BCC-58B1E187D71E}
 		{7773F3EC-DA98-439B-BDDB-090A9A3417F3} = {2B4D10BF-B4E2-42EC-8BCC-58B1E187D71E}
 		{2CEE60DA-08F3-467F-B672-B833A29B098D} = {2B4D10BF-B4E2-42EC-8BCC-58B1E187D71E}
 		{E5FA36DE-7868-4F8B-B34D-70DAACEBB511} = {DE248987-0402-487A-B42C-92E3D878D6BB}
