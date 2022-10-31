@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Projeto_Prova_N1.PSGCAP.Frota">
+    <Position X="11.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAgAAAAAAAAAAEAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>PSGCAP\Frota.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Projeto_Prova_N1.PSGCAP.BaseVeiculo">
+    <Position X="3.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAIAAQACAAAAAAAQAAAEEAAABAAAgAAAAIAAA=</HashCode>
+      <FileName>PSGCAP\BaseVeiculo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Projeto_Prova_N1.PSGCAP.EventoFrota">
+    <Position X="9.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AUAAAAhCAAAIAgAAAAAEAAAABAABAgAAAAIAAAAAAAA=</HashCode>
+      <FileName>PSGCAP\EventoFrota.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Projeto_Prova_N1.PSGCAP.BaseCampos">
+    <Position X="6" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAQAAAAEAAAEBAAABAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PSGCAP\BaseCampos.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Projeto_Prova_N1.PSGCAP.Motocicleta">
+    <Position X="0.5" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PSGCAP\Motocicleta.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Projeto_Prova_N1.PSGCAP.Carro">
+    <Position X="7.25" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PSGCAP\Carro.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Projeto_Prova_N1.PSGCAP.Utilitario">
+    <Position X="5" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PSGCAP\Utilitario.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Projeto_Prova_N1.PSGCAP.Caminhao">
+    <Position X="2.75" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PSGCAP\Caminhao.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Projeto_Prova_N1.PSGCAP.BasePesoCarga">
+    <Position X="3.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAAAAAAAAAAACAAAAAgAAAAAAIAAAACA=</HashCode>
+      <FileName>PSGCAP\BasePesoCarga.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
