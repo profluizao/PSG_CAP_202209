@@ -9,59 +9,60 @@ using Atacado.DB.EF.Database;
 
 namespace Atacado.Repositorio.Estoque
 {
-    public class CategoriaRepo : BaseRepositorio<Categoria>
+    public class SubcategoriaRepo : BaseRepositorio<Subcategoria>
     {
         private ProjetoAcademiaContext contexto;
 
-        public CategoriaRepo()
+        public SubcategoriaRepo()
         {
             this.contexto = new ProjetoAcademiaContext();
         }
 
-        public override Categoria Create(Categoria instancia)
+        public override Subcategoria Create(Subcategoria instancia)
         {
-            this.contexto.Categorias.Add(instancia);
+            this.contexto.Subcategorias.Add(instancia);
             return instancia;
         }
 
-        public override Categoria Delete(int chave)
+        public override Subcategoria Delete(int chave)
         {
-            Categoria del = this.Read(chave);
+            Subcategoria del = this.Read(chave);
             if (del == null)
             {
                 return null;
             }
             else
             {
-                this.contexto.Categorias.Remove(del);
+                this.contexto.Subcategorias.Remove(del);
                 return del;
             }
         }
 
-        public override Categoria Delete(Categoria instancia)
+        public override Subcategoria Delete(Subcategoria instancia)
         {
             return this.Delete(instancia.Codigo);
         }
 
-        public override Categoria Read(int chave)
+        public override Subcategoria Read(int chave)
         {
-            return this.contexto.Categorias.SingleOrDefault(cat => cat.Codigo == chave);
+            return this.contexto.Subcategorias.SingleOrDefault(sub => sub.Codigo == chave);
         }
 
-        public override List<Categoria> Read()
+        public override List<Subcategoria> Read()
         {
-            return this.contexto.Categorias.ToList();
+            return this.contexto.Subcategorias.ToList();
         }
 
-        public override Categoria Update(Categoria instancia)
+        public override Subcategoria Update(Subcategoria instancia)
         {
-            Categoria atu = this.Read(instancia.Codigo);
+            Subcategoria atu = this.Read(instancia.Codigo);
             if (atu == null)
             {
                 return null;
             }
             else
             {
+                atu.CodigoCategoria = instancia.CodigoCategoria;
                 atu.Descricao = instancia.Descricao;
                 return atu;
             }
