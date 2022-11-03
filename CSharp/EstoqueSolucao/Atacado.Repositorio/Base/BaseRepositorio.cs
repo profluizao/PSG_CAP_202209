@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,6 +14,8 @@ namespace Atacado.Repositorio.Base
         public abstract TDominio Read(int chave);
 
         public abstract List<TDominio> Read();
+
+        public abstract IQueryable<TDominio> Read(Expression<Func<TDominio, bool>> predicate = null);
 
         public abstract TDominio Update(TDominio instancia);
 
