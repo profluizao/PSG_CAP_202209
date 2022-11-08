@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 using Atacado.Poco.Estoque;
 using Atacado.Servico.Estoque;
+using System.Collections.Generic;
 
 namespace AtacadoApi.Controllers
 {
@@ -28,9 +29,17 @@ namespace AtacadoApi.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public List<CategoriaPoco> ObterTodos()
+        public ActionResult<List<CategoriaPoco>> ObterTodos()
         {
-            return this.servico.Browse();
+            try
+            {
+                List<CategoriaPoco> lista = this.servico.Browse();
+                return Ok(lista);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         /// <summary>
@@ -39,9 +48,18 @@ namespace AtacadoApi.Controllers
         /// <param name="codigo"></param>
         /// <returns></returns>
         [HttpGet("{codigo:int}")]
-        public CategoriaPoco ObterPorId(int codigo)
+        public ActionResult<CategoriaPoco> ObterPorId(int codigo)
         {
-            return this.servico.Read(codigo);
+            try
+            {
+                CategoriaPoco poco = this.servico.Read(codigo);
+                return Ok(poco);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
+
         }
 
         /// <summary>
@@ -50,9 +68,17 @@ namespace AtacadoApi.Controllers
         /// <param name="poco"></param>
         /// <returns></returns>
         [HttpPost]
-        public CategoriaPoco Adicionar([FromBody] CategoriaPoco poco)
+        public ActionResult<CategoriaPoco> Adicionar([FromBody] CategoriaPoco poco)
         {
-            return this.servico.Add(poco);
+            try
+            {
+                CategoriaPoco novoPoco = this.servico.Add(poco);
+                return Ok(novoPoco);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         /// <summary>
@@ -61,9 +87,17 @@ namespace AtacadoApi.Controllers
         /// <param name="poco"></param>
         /// <returns></returns>
         [HttpPut]
-        public CategoriaPoco Atualizar([FromBody] CategoriaPoco poco)
+        public ActionResult<CategoriaPoco> Atualizar([FromBody] CategoriaPoco poco)
         {
-            return this.servico.Edit(poco);
+            try
+            {
+                CategoriaPoco alterPoco = this.servico.Edit(poco);
+                return Ok(alterPoco);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         /// <summary>
@@ -72,9 +106,17 @@ namespace AtacadoApi.Controllers
         /// <param name="codigo"></param>
         /// <returns></returns>
         [HttpDelete("{codigo:int}")]
-        public CategoriaPoco ExcluirPorId(int codigo)
+        public ActionResult<CategoriaPoco> ExcluirPorId(int codigo)
         {
-            return this.servico.Delete(codigo);
+            try
+            {
+                CategoriaPoco delPoco = this.servico.Delete(codigo);
+                return Ok(delPoco);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         /// <summary>
@@ -83,9 +125,17 @@ namespace AtacadoApi.Controllers
         /// <param name="poco"></param>
         /// <returns></returns>
         [HttpDelete]
-        public CategoriaPoco ExcluirPorInstancia([FromBody] CategoriaPoco poco)
+        public ActionResult<CategoriaPoco> ExcluirPorInstancia([FromBody] CategoriaPoco poco)
         {
-            return this.servico.Delete(poco);
+            try
+            {
+                CategoriaPoco delPoco = this.servico.Delete(poco);
+                return Ok(delPoco);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }
