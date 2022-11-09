@@ -7,24 +7,24 @@ using System.Threading.Tasks;
 using Atacado.Servico.Base;
 using Atacado.DB.EF.Database;
 using Atacado.Poco.Estoque;
-using Atacado.Repositorio.Estoque;
+using Atacado.Repositorio.Base;
 using System.Linq.Expressions;
 
 namespace Atacado.Servico.Estoque
 {
     public class SubcategoriaServico : BaseServico<SubcategoriaPoco, Subcategoria>
     {
-        private SubcategoriaRepo repo;
+        private GenericRepository<Subcategoria> genrepo;
 
         public SubcategoriaServico() : base()
         {
-            this.repo = new SubcategoriaRepo();
+            this.genrepo = new GenericRepository<Subcategoria>();
         }
 
         public override SubcategoriaPoco Add(SubcategoriaPoco poco)
         {
             Subcategoria nova = this.ConvertTo(poco);
-            Subcategoria criada = this.repo.Create(nova);
+            Subcategoria criada = this.genrepo.Insert(nova);
             SubcategoriaPoco criadaPoco = this.ConvertTo(criada);
             return criadaPoco;
         }
@@ -40,11 +40,11 @@ namespace Atacado.Servico.Estoque
             IQueryable<Subcategoria> query;
             if (filtro == null)
             {
-                query = this.repo.Read(null);
+                query = this.genrepo.Browseable(null);
             }
             else
             {
-                query = this.repo.Read(filtro);
+                query = this.genrepo.Browseable(filtro);
             }
             listaPoco = query.Select(sub =>
                 new SubcategoriaPoco()
@@ -86,14 +86,14 @@ namespace Atacado.Servico.Estoque
 
         public override SubcategoriaPoco Delete(int chave)
         {
-            Subcategoria del = this.repo.Delete(chave);
+            Subcategoria del = this.genrepo.Delete(chave);
             SubcategoriaPoco delPoco = this.ConvertTo(del);
             return delPoco;
         }
 
         public override SubcategoriaPoco Delete(SubcategoriaPoco poco)
         {
-            Subcategoria del = this.repo.Delete(poco.Codigo);
+            Subcategoria del = this.genrepo.Delete(poco.Codigo);
             SubcategoriaPoco delPoco = this.ConvertTo(del);
             return delPoco;
         }
@@ -101,14 +101,14 @@ namespace Atacado.Servico.Estoque
         public override SubcategoriaPoco Edit(SubcategoriaPoco poco)
         {
             Subcategoria editada = this.ConvertTo(poco);
-            Subcategoria alterada = this.repo.Update(editada);
+            Subcategoria alterada = this.genrepo.Update(editada);
             SubcategoriaPoco alteradaPoco = this.ConvertTo(alterada);
             return alteradaPoco;
         }
 
         public override SubcategoriaPoco Read(int chave)
         {
-            Subcategoria lida = this.repo.Read(chave);
+            Subcategoria lida = this.genrepo.GetById(chave);
             SubcategoriaPoco lidaPoco = this.ConvertTo(lida);
             return lidaPoco;
         }
