@@ -15,7 +15,7 @@ namespace Atacado.Servico.Base
         where TDominio : class
         where TPoco : class
     {
-        private GenericRepository<TDominio> genrepo;
+        protected GenericRepository<TDominio> genrepo;
 
         public GenericService()
         { 
@@ -24,10 +24,10 @@ namespace Atacado.Servico.Base
 
         public List<TPoco> Listar()
         {
-            return this.Consultar(null).ToList<TPoco>();
+            return this.Consultar(null);
         }
 
-        public virtual IQueryable<TPoco> Consultar(Expression<Func<TDominio, bool>> predicate = null)
+        public virtual List<TPoco> Consultar(Expression<Func<TDominio, bool>> predicate = null)
         {
             throw new NotImplementedException();
         }

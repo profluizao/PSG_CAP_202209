@@ -12,41 +12,42 @@ using System.Linq.Expressions;
 
 namespace Atacado.Servico.Estoque
 {
-    public class CategoriaServico : BaseServico<CategoriaPoco, Categoria>
+    public class CategoriaServico : GenericService<Categoria, CategoriaPoco>
     {
-        private GenericRepository<Categoria> genrepo;
-
-        public CategoriaServico() : base()
+        public override CategoriaPoco ConverterPara(Categoria obj)
         {
-            this.genrepo = new GenericRepository<Categoria>();
+            return new CategoriaPoco()
+            {
+                Codigo = obj.Codigo,
+                Descricao = obj.Descricao,
+                Ativo = obj.Ativo,
+                DataInsert = obj.DataInsert
+            };
         }
 
-        public override CategoriaPoco Add(CategoriaPoco poco)
+        public override Categoria ConverterPara(CategoriaPoco obj)
         {
-            Categoria nova = this.ConvertTo(poco);
-            Categoria criada = this.genrepo.Insert(nova);
-            CategoriaPoco criadaPoco = this.ConvertTo(criada);
-            return criadaPoco;
+            return new Categoria()
+            {
+                Codigo = obj.Codigo,
+                Descricao = obj.Descricao,
+                Ativo = obj.Ativo,
+                DataInsert = obj.DataInsert
+            };
         }
 
-        public override List<CategoriaPoco> Browse()
+        public override List<CategoriaPoco> Consultar(Expression<Func<Categoria, bool>> predicate = null)
         {
-            return this.Browse(null);
-        }
-
-        public override List<CategoriaPoco> Browse(Expression<Func<Categoria, bool>> filtro = null)
-        {
-            List<CategoriaPoco> listaPoco;
             IQueryable<Categoria> query;
-            if (filtro == null)
+            if (predicate == null)
             {
                 query = this.genrepo.Browseable(null);
             }
             else
             {
-                query = this.genrepo.Browseable(filtro);
+                query = this.genrepo.Browseable(predicate);
             }
-            listaPoco = query.Select(cat => 
+            List<CategoriaPoco> listaPoco = query.Select(cat =>
                 new CategoriaPoco()
                     {
                         Codigo = cat.Codigo,
@@ -57,57 +58,6 @@ namespace Atacado.Servico.Estoque
                 )
                 .ToList();
             return listaPoco;
-        }
-
-        public override CategoriaPoco ConvertTo(Categoria dominio)
-        {
-            return new CategoriaPoco()
-            {
-                Codigo = dominio.Codigo, 
-                Descricao = dominio.Descricao, 
-                Ativo = dominio.Ativo,
-                DataInsert = dominio.DataInsert
-            };
-        }
-
-        public override Categoria ConvertTo(CategoriaPoco poco)
-        {
-            return new Categoria()
-            {
-                Codigo = poco.Codigo, 
-                Descricao = poco.Descricao,
-                Ativo = poco.Ativo,
-                DataInsert = poco.DataInsert
-            };
-        }
-
-        public override CategoriaPoco Delete(int chave)
-        {
-            Categoria del = this.genrepo.Delete(chave);
-            CategoriaPoco delPoco = this.ConvertTo(del);
-            return delPoco;
-        }
-
-        public override CategoriaPoco Delete(CategoriaPoco poco)
-        {
-            Categoria del = this.genrepo.Delete(poco.Codigo);
-            CategoriaPoco delPoco = this.ConvertTo(del);
-            return delPoco;
-        }
-
-        public override CategoriaPoco Edit(CategoriaPoco poco)
-        {
-            Categoria editada = this.ConvertTo(poco);
-            Categoria alterada = this.genrepo.Update(editada);
-            CategoriaPoco alteradaPoco = this.ConvertTo(alterada);
-            return alteradaPoco;
-        }
-
-        public override CategoriaPoco Read(int chave)
-        {
-            Categoria lida = this.genrepo.GetById(chave);
-            CategoriaPoco lidaPoco = this.ConvertTo(lida);
-            return lidaPoco;
         }
     }
 }
