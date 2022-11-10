@@ -30,7 +30,7 @@ namespace AtacadoApi.Controllers
         [HttpGet]
         public List<ProdutoPoco> Get()
         {
-            return this.servico.Browse();
+            return this.servico.Listar();
         }
 
         /// <summary>
@@ -41,7 +41,7 @@ namespace AtacadoApi.Controllers
         [HttpGet("{id:int}")]
         public ProdutoPoco GetPorId(int id)
         {
-            return this.servico.Read(id);
+            return this.servico.PesquisarPelaChave(id);
         }
 
         /// <summary>
@@ -52,7 +52,7 @@ namespace AtacadoApi.Controllers
         [HttpGet("PorCategoria/{catid:int}")]
         public List<ProdutoPoco> GetPorCategoriaId(int catid)
         {
-            return this.servico.Browse(prd => prd.CodigoCategoria == catid).ToList();
+            return this.servico.Consultar(prd => prd.CodigoCategoria == catid);
         }
 
         /// <summary>
@@ -63,7 +63,7 @@ namespace AtacadoApi.Controllers
         [HttpGet("PorSubcategoria/{subid:int}")]
         public List<ProdutoPoco> GetPorSubcategoriaId(int subid)
         {
-            return this.servico.Browse(prd => prd.CodigoSubcategoria == subid).ToList();
+            return this.servico.Consultar(prd => prd.CodigoSubcategoria == subid);
         }
 
         /// <summary>
@@ -75,8 +75,7 @@ namespace AtacadoApi.Controllers
         [HttpGet("PorCategoria/{catid:int}/PorSubcategoria/{subid:int}")]
         public List<ProdutoPoco> GetPorCategoriaPorSubcategoria(int catid, int subid)
         {
-            return this.servico.Browse(prd => (prd.CodigoCategoria == catid) && (prd.CodigoSubcategoria == subid))
-                .ToList();
+            return this.servico.Consultar(prd => (prd.CodigoCategoria == catid) && (prd.CodigoSubcategoria == subid));
         }
 
         /// <summary>
@@ -84,8 +83,9 @@ namespace AtacadoApi.Controllers
         /// </summary>
         /// <param name="value"></param>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public ProdutoPoco Post([FromBody] ProdutoPoco poco)
         {
+            return this.servico.Inserir(poco);
         }
 
         /// <summary>
@@ -94,8 +94,9 @@ namespace AtacadoApi.Controllers
         /// <param name="id"></param>
         /// <param name="value"></param>
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public ProdutoPoco Put([FromBody] ProdutoPoco poco)
         {
+            return this.servico.Alterar(poco);
         }
 
         /// <summary>
@@ -103,8 +104,9 @@ namespace AtacadoApi.Controllers
         /// </summary>
         /// <param name="id"></param>
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public ProdutoPoco Delete(int id)
         {
+            return this.servico.Excluir(id);
         }
     }
 }

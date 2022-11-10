@@ -30,7 +30,7 @@ namespace AtacadoApi.Controllers
         [HttpGet]
         public List<SubcategoriaPoco> Get()
         {
-            return this.servico.Browse();
+            return this.servico.Listar();
         }
 
         /// <summary>
@@ -41,7 +41,7 @@ namespace AtacadoApi.Controllers
         [HttpGet("PorCategoria/{catid:int}")]
         public List<SubcategoriaPoco> GetPorCategoria(int catid)
         {
-            return this.servico.Browse(sub => sub.CodigoCategoria == catid).ToList();
+            return this.servico.Consultar(sub => sub.CodigoCategoria == catid);
         }
 
         /// <summary>
@@ -52,7 +52,7 @@ namespace AtacadoApi.Controllers
         [HttpGet("{id}")]
         public SubcategoriaPoco Get(int id)
         {
-            return this.servico.Read(id);
+            return this.servico.PesquisarPelaChave(id);
         }
 
         /// <summary>
@@ -63,7 +63,7 @@ namespace AtacadoApi.Controllers
         [HttpPost]
         public SubcategoriaPoco Post([FromBody] SubcategoriaPoco poco)
         {
-            return this.servico.Add(poco);
+            return this.servico.Inserir(poco);
         }
 
         /// <summary>
@@ -74,7 +74,7 @@ namespace AtacadoApi.Controllers
         [HttpPut]
         public SubcategoriaPoco Put([FromBody] SubcategoriaPoco poco)
         {
-            return this.servico.Edit(poco);
+            return this.servico.Alterar(poco);
         }
 
         /// <summary>
@@ -85,7 +85,7 @@ namespace AtacadoApi.Controllers
         [HttpDelete("{id}")]
         public SubcategoriaPoco Delete(int id)
         {
-            return this.servico.Delete(id);
+            return this.servico.Excluir(id);
         }
     }
 }
