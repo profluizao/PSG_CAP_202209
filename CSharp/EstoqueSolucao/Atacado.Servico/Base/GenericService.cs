@@ -27,39 +27,60 @@ namespace Atacado.Servico.Base
             return this.Consultar(null);
         }
 
-        public virtual List<TPoco> Consultar(Expression<Func<TDominio, bool>> predicate = null)
+        public virtual List<TPoco> Listar(int? take = null, int? skip = null)
+        {
+            throw new NotImplementedException("Deixa de ser preguiçoso!!!");
+        }
+
+        public virtual List<TPoco> Consultar(Expression<Func<TDominio, bool>>? predicate = null)
         {
             throw new NotImplementedException();
         }
 
-        public TPoco PesquisarPelaChave(object chave)
+        public TPoco? PesquisarPelaChave(object chave)
         {
-            TDominio lida = this.genrepo.GetById(chave);
-            TPoco lidaPoco = this.ConverterPara(lida);
+            TDominio? lida = this.genrepo.GetById(chave);
+            TPoco? lidaPoco = null;
+            if (lida != null)
+            {
+                lidaPoco = this.ConverterPara(lida);
+            }
             return lidaPoco;
         }
 
-        public TPoco Inserir(TPoco obj)
+        public TPoco? Inserir(TPoco obj)
         {
-            TDominio nova = this.ConverterPara(obj);
-            TDominio criada = this.genrepo.Insert(nova);
-            TPoco criadaPoco = this.ConverterPara(criada);
+            TDominio? nova = this.ConverterPara(obj);
+            TDominio? criada = this.genrepo.Insert(nova);
+            TPoco? criadaPoco = null;
+            if (criada != null)
+            {
+                criadaPoco = this.ConverterPara(criada);
+            }
             return criadaPoco;
         }
 
 
-        public TPoco Alterar(TPoco obj)
+        public TPoco? Alterar(TPoco obj)
         {
-            TDominio editada = this.ConverterPara(obj);
-            TDominio alterada = this.genrepo.Update(editada);
-            TPoco alteradaPoco = this.ConverterPara(alterada);
+            TDominio? editada = this.ConverterPara(obj);
+            TDominio? alterada = this.genrepo.Update(editada);
+            TPoco? alteradaPoco = null;
+            if (alterada != null)
+            { 
+                alteradaPoco = this.ConverterPara(alterada);
+            }
             return alteradaPoco;
         }
 
-        public TPoco Excluir(object chave)
+        public TPoco? Excluir(object chave)
         {
-            TDominio del = this.genrepo.Delete(chave);
-            TPoco delPoco = this.ConverterPara(del);
+            TDominio? del = this.genrepo.Delete(chave);
+            TPoco? delPoco = null;
+            if (del != null)
+            {
+                delPoco = this.ConverterPara(del);
+            }
             return delPoco;
         }
 
@@ -69,6 +90,11 @@ namespace Atacado.Servico.Base
         }
 
         public virtual TPoco ConverterPara(TDominio obj)
+        {
+            throw new NotImplementedException();
+        }
+
+        public virtual List<TPoco> ConverterPara(IQueryable<TDominio> query)
         {
             throw new NotImplementedException();
         }

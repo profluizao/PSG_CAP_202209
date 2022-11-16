@@ -14,7 +14,21 @@ namespace Atacado.Servico.Estoque
 {
     public class ProdutoServico : GenericService<Produto, ProdutoPoco>
     {
-        public override List<ProdutoPoco> Consultar(Expression<Func<Produto, bool>> predicate = null)
+        public override List<ProdutoPoco> Listar(int? take = null, int? skip = null)
+        {
+            IQueryable<Produto> query;
+            if (skip == null)
+            {
+                query = this.genrepo.GetAll();
+            }
+            else
+            {
+                query = this.genrepo.GetAll(take, skip);
+            }
+            return this.ConverterPara(query);
+        }
+
+        public override List<ProdutoPoco> Consultar(Expression<Func<Produto, bool>>? predicate = null)
         {
             IQueryable<Produto> query;
             if (predicate == null)
@@ -25,19 +39,7 @@ namespace Atacado.Servico.Estoque
             {
                 query = this.genrepo.Browseable(predicate);
             }
-            List<ProdutoPoco> listaPoco = query.Select(pdt =>
-                new ProdutoPoco()
-                    {
-                        Codigo = pdt.Codigo,
-                        CodigoCategoria = pdt.CodigoCategoria,
-                        CodigoSubcategoria = pdt.CodigoSubcategoria,
-                        Descricao = pdt.Descricao,
-                        Ativo = pdt.Ativo,
-                        DataInsert = pdt.DataInsert
-                    }
-                )
-                .ToList();
-            return listaPoco;
+            return this.ConverterPara(query);
         }
 
         public override Produto ConverterPara(ProdutoPoco obj)
@@ -64,6 +66,22 @@ namespace Atacado.Servico.Estoque
                 Ativo = obj.Ativo,
                 DataInsert = obj.DataInsert
             };
+        }
+
+        public override List<ProdutoPoco> ConverterPara(IQueryable<Produto> query)
+        {
+            return query.Select(pdt =>
+                new ProdutoPoco()
+                {
+                    Codigo = pdt.Codigo,
+                    CodigoCategoria = pdt.CodigoCategoria,
+                    CodigoSubcategoria = pdt.CodigoSubcategoria,
+                    Descricao = pdt.Descricao,
+                    Ativo = pdt.Ativo,
+                    DataInsert = pdt.DataInsert
+                }
+                )
+                .ToList();
         }
     }
 }

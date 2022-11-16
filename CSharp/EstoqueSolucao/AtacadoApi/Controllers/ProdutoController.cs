@@ -28,9 +28,9 @@ namespace AtacadoApi.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public List<ProdutoPoco> Get()
+        public List<ProdutoPoco> Get(int? take = null, int? skip = null)
         {
-            return this.servico.Listar();
+            return this.servico.Listar(take, skip);
         }
 
         /// <summary>
