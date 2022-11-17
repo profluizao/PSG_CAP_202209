@@ -5,6 +5,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using Atacado.DB.EF.Database;
+using Atacado.Mapping.Base;
 using Atacado.Poco.Estoque;
 using Atacado.Repositorio.Base;
 
@@ -17,9 +18,12 @@ namespace Atacado.Servico.Base
     {
         protected GenericRepository<TDominio> genrepo;
 
+        protected GenericMap<TDominio, TPoco> genmap;
+
         public GenericService()
         { 
             this.genrepo = new GenericRepository<TDominio>();
+            this.genmap = new GenericMap<TDominio, TPoco>();
         }
 
         public List<TPoco> Listar()
@@ -84,14 +88,14 @@ namespace Atacado.Servico.Base
             return delPoco;
         }
 
-        public virtual TDominio ConverterPara(TPoco obj)
+        public TDominio ConverterPara(TPoco obj)
         {
-            throw new NotImplementedException();
+            return this.genmap.Mapping.Map<TDominio>(obj);
         }
 
-        public virtual TPoco ConverterPara(TDominio obj)
+        public TPoco ConverterPara(TDominio obj)
         {
-            throw new NotImplementedException();
+            return this.genmap.Mapping.Map<TPoco>(obj);
         }
 
         public virtual List<TPoco> ConverterPara(IQueryable<TDominio> query)
