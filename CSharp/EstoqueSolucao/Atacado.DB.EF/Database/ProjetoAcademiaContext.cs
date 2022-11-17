@@ -28,6 +28,15 @@ namespace Atacado.DB.EF.Database
         public virtual DbSet<Profissao> Profissoes { get; set; } = null!;
         public virtual DbSet<Subcategoria> Subcategorias { get; set; } = null!;
 
+        //Criado pelo Desenvolvedor.
+
+        public virtual DbSet<TipoRebanho> TipoRebanhos { get; set; } = null!;
+
+
+        //Criado pelo Desenvolvedor.
+
+
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
@@ -133,6 +142,17 @@ namespace Atacado.DB.EF.Database
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_SubCategoria_Categoria");
             });
+
+            //Criado pelo Desenvolvedor.
+
+            modelBuilder.Entity<TipoRebanho>(entity =>
+            {
+                entity.Property(e => e.DataInclusao).HasDefaultValueSql("(getdate())");
+
+                entity.Property(e => e.Situacao).HasDefaultValueSql("((1))");
+            });
+
+            //Criado pelo Desenvolvedor.
 
             OnModelCreatingPartial(modelBuilder);
         }
