@@ -29,8 +29,11 @@ builder.Services.AddSwaggerGen(opcoes =>
         }
     });
 
-    var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-    opcoes.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
+    //var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+    //string path = Path.Combine(AppContext.BaseDirectory, xmlFilename);
+    //opcoes.IncludeXmlComments(path);
+    var filePath = Path.Combine(builder.Environment.ContentRootPath, @"Documents\AtacadoApi.xml");
+    opcoes.IncludeXmlComments(filePath);
 });
 
 var app = builder.Build();

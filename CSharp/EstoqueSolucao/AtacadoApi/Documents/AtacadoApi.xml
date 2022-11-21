@@ -1,0 +1,174 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AtacadoApi</name>
+    </assembly>
+    <members>
+        <member name="T:AtacadoApi.Controllers.CategoriaController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:AtacadoApi.Controllers.CategoriaController.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:AtacadoApi.Controllers.CategoriaController.ObterTodos">
+            <summary>
+            Listar todos os registros da tabela.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.CategoriaController.ObterPorId(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="codigo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.CategoriaController.Adicionar(Atacado.Poco.Estoque.CategoriaPoco)">
+            <summary>
+            
+            </summary>
+            <param name="poco"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.CategoriaController.Atualizar(Atacado.Poco.Estoque.CategoriaPoco)">
+            <summary>
+            
+            </summary>
+            <param name="poco"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.CategoriaController.ExcluirPorId(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="codigo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.CategoriaController.ExcluirPorInstancia(Atacado.Poco.Estoque.CategoriaPoco)">
+            <summary>
+            
+            </summary>
+            <param name="poco"></param>
+            <returns></returns>
+        </member>
+        <member name="T:AtacadoApi.Controllers.ProdutoController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:AtacadoApi.Controllers.ProdutoController.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:AtacadoApi.Controllers.ProdutoController.Get(System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.ProdutoController.GetPorId(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.ProdutoController.GetPorCategoriaId(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="catid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.ProdutoController.GetPorSubcategoriaId(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="subid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.ProdutoController.GetPorCategoriaPorSubcategoria(System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="catid"></param>
+            <param name="subid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.ProdutoController.Post(Atacado.Poco.Estoque.ProdutoPoco)">
+            <summary>
+            
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="M:AtacadoApi.Controllers.ProdutoController.Put(Atacado.Poco.Estoque.ProdutoPoco)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:AtacadoApi.Controllers.ProdutoController.Delete(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+        </member>
+        <member name="T:AtacadoApi.Controllers.SubcategoriaController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:AtacadoApi.Controllers.SubcategoriaController.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:AtacadoApi.Controllers.SubcategoriaController.Get">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.SubcategoriaController.GetPorCategoria(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="catid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.SubcategoriaController.Get(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.SubcategoriaController.Post(Atacado.Poco.Estoque.SubcategoriaPoco)">
+            <summary>
+            
+            </summary>
+            <param name="poco"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.SubcategoriaController.Put(Atacado.Poco.Estoque.SubcategoriaPoco)">
+            <summary>
+            
+            </summary>
+            <param name="poco"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.SubcategoriaController.Delete(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
