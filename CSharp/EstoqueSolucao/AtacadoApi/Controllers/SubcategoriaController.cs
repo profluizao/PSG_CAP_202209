@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 using Atacado.Poco.Estoque;
 using Atacado.Servico.Estoque;
+using Atacado.DB.EF.Database;
 
 namespace AtacadoApi.Controllers
 {
@@ -18,9 +19,9 @@ namespace AtacadoApi.Controllers
         /// <summary>
         /// 
         /// </summary>
-        public SubcategoriaController() : base()
+        public SubcategoriaController(ProjetoAcademiaContext contexto) : base()
         {
-            this.servico = new SubcategoriaServico();
+            this.servico = new SubcategoriaServico(contexto);
         }
 
         /// <summary>

@@ -32,6 +32,7 @@ namespace Atacado.DB.EF.Database
 
         public virtual DbSet<TipoRebanho> TipoRebanhos { get; set; } = null!;
 
+        public virtual DbSet<Rebanho> Rebanhos { get; set; } = null!;
 
         //Criado pelo Desenvolvedor.
 
@@ -41,7 +42,7 @@ namespace Atacado.DB.EF.Database
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Data Source=psgs0071.psg.local; Initial Catalog=Academia; User=academia; Password=@cadem1@555;");
+                //optionsBuilder.UseSqlServer("Data Source=psgs0071.psg.local; Initial Catalog=Academia; User=academia; Password=@cadem1@555;");
             }
         }
 
@@ -146,6 +147,13 @@ namespace Atacado.DB.EF.Database
             //Criado pelo Desenvolvedor.
 
             modelBuilder.Entity<TipoRebanho>(entity =>
+            {
+                entity.Property(e => e.DataInclusao).HasDefaultValueSql("(getdate())");
+
+                entity.Property(e => e.Situacao).HasDefaultValueSql("((1))");
+            });
+
+            modelBuilder.Entity<Rebanho>(entity =>
             {
                 entity.Property(e => e.DataInclusao).HasDefaultValueSql("(getdate())");
 
