@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ClinicaApi</name>
+    </assembly>
+    <members>
+        <member name="T:ClinicaApi.Controllers.PacienteController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ClinicaApi.Controllers.PacienteController.#ctor(Clinica.Dominio.EF.ClinicaContext)">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ClinicaApi.Controllers.PacienteController.ObterTodos">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
