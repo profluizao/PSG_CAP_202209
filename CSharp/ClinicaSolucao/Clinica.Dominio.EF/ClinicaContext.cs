@@ -11,6 +11,10 @@ namespace Clinica.Dominio.EF
     {
         public DbSet<Paciente> Pacientes { get; set; } = null!;
 
+        public DbSet<Consulta> Consultas { get; set; } = null!;
+
+        public DbSet<Servico> Servicos { get; set; } = null!;
+
         public ClinicaContext() : base()
         { }
 
@@ -25,6 +29,18 @@ namespace Clinica.Dominio.EF
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Paciente>(entity => 
+            {
+                entity.Property(e => e.Situacao).HasDefaultValueSql("((1))");
+                entity.Property(e => e.DataInclusao).HasDefaultValueSql("(getdate())");
+            });
+
+            modelBuilder.Entity<Consulta>(entity =>
+            {
+                entity.Property(e => e.Situacao).HasDefaultValueSql("((1))");
+                entity.Property(e => e.DataInclusao).HasDefaultValueSql("(getdate())");
+            });
+
+            modelBuilder.Entity<Servico>(entity =>
             {
                 entity.Property(e => e.Situacao).HasDefaultValueSql("((1))");
                 entity.Property(e => e.DataInclusao).HasDefaultValueSql("(getdate())");
