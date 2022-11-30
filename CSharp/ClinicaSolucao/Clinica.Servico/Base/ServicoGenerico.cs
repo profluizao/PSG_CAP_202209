@@ -38,7 +38,12 @@ public class ServicoGenerico<TDominio, TPoco> :
 
     public virtual List<TPoco> Consultar(Expression<Func<TDominio, bool>>? predicate = null)
     {
-        throw new NotImplementedException();
+        throw new NotImplementedException("Deixa de ser preguiçoso!!!");
+    }
+
+    public virtual List<TPoco> Vasculhar(int? take = null, int? skip = null, Expression<Func<TDominio, bool>>? predicate = null)
+    {
+        throw new NotImplementedException("Deixa de ser preguiçoso!!!");
     }
 
     public virtual TPoco? PesquisarPelaChave(object chave)
@@ -100,7 +105,7 @@ public class ServicoGenerico<TDominio, TPoco> :
 
     public virtual List<TPoco> ConverterPara(IQueryable<TDominio> query)
     {
-        throw new NotImplementedException();
+        throw new NotImplementedException("Deixa de ser preguiçoso!!!");
     }
 }
 

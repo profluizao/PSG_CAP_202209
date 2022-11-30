@@ -13,6 +13,8 @@ public interface IRepositorioGenerico<T> where T : class
 
     IQueryable<T> GetAll(int? take = null, int? skip = null);
 
+    IQueryable<T> Searchable(int? take = null, int? skip = null, Expression<Func<T, bool>>? predicate = null);
+
     T? GetById(object id);
 
     T? Insert(T obj);

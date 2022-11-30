@@ -3,8 +3,8 @@ using Clinica.Poco;
 using Clinica.Servico.Odonto;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq.Expressions;
 
-using LinqKit.Core;
 using LinqKit;
 
 namespace ClinicaApi.Controllers
@@ -14,7 +14,7 @@ namespace ClinicaApi.Controllers
     /// </summary>
     [Route("api/clinica/[controller]")]
     [ApiController]
-    public class ExameController : ControllerBase
+    public class ProcedimentosController : ControllerBase
     {
         private ProcedimentosServico servico;
 
@@ -22,7 +22,7 @@ namespace ClinicaApi.Controllers
         /// 
         /// </summary>
         /// <param name="contexto"></param>
-        public ExameController(ClinicaContext contexto) : base()
+        public ProcedimentosController(ClinicaContext contexto) : base()
         { 
             this.servico = new ProcedimentosServico(contexto);
         }
@@ -30,11 +30,12 @@ namespace ClinicaApi.Controllers
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="tipoServico"></param>
         /// <param name="take"></param>
         /// <param name="skip"></param>
         /// <returns></returns>
-        [HttpGet]
-        public ActionResult<List<ServicoPoco>> GetAll(int? take = null, int? skip = null)
+        [HttpGet("{tipoServico}")]
+        public ActionResult<List<ServicoPoco>> GetAll(string tipoServico, int? take = null, int? skip = null)
         {
             try
             {
@@ -61,7 +62,7 @@ namespace ClinicaApi.Controllers
                     }
                     else
                     {
-                        predicado = predicado.And(s => s.TipoServico == "EX");
+                        predicado = predicado.And(s => s.TipoServico == tipoServico);
                         listPoco = this.servico.Vasculhar(take, skip, predicado);
                         return Ok(listPoco);
                     }
@@ -78,12 +79,12 @@ namespace ClinicaApi.Controllers
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        [HttpGet("{id:int}")]
-        public ActionResult<ServicoPoco> Get(int id)
+        [HttpGet("{tipoServico}/{id:int}")]
+        public ActionResult<ServicoPoco> Get(string tipoServico, int id)
         {
             try
             {
-                List<ServicoPoco> listPoco = this.servico.Consultar(s => (s.TipoServico == "EX") && (s.CodigoServico == id));
+                List<ServicoPoco> listPoco = this.servico.Consultar(s => (s.TipoServico == tipoServico) && (s.CodigoServico == id));
                 return Ok(listPoco);
             }
             catch (Exception ex)

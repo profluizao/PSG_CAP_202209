@@ -17,6 +17,8 @@ public interface IServicoGenerico<TDominio, TPoco>
 
     List<TPoco> Consultar(Expression<Func<TDominio, bool>>? predicate = null);
 
+    List<TPoco> Vasculhar(int? take = null, int? skip = null, Expression<Func<TDominio, bool>>? predicate = null);
+
     TPoco? PesquisarPelaChave(object chave);
 
     TPoco? Inserir(TPoco obj);

@@ -48,6 +48,18 @@ public class RepositorioGenerico<TDominio> : IRepositorioGenerico<TDominio>
         }
     }
 
+    public IQueryable<TDominio> Searchable(int? take = null, int? skip = null, Expression<Func<TDominio, bool>>? predicate = null)
+    {
+        if (predicate == null)
+        {
+            return this.GetAll(take, skip);
+        }
+        else
+        {
+            return this.GetAll(take, skip).Where(predicate);
+        }
+    }
+
     public TDominio? GetById(object id)
     {
         return this.table.Find(id);
@@ -83,4 +95,6 @@ public class RepositorioGenerico<TDominio> : IRepositorioGenerico<TDominio>
     {
         this.context.SaveChanges();
     }
+
+
 }

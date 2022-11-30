@@ -42,6 +42,19 @@ namespace Clinica.Servico.Odonto
             return this.ConverterPara(query);
         }
 
+        public override List<ServicoPoco> Vasculhar(int? take = null, int? skip = null, Expression<Func<Dominio.EF.Servico, bool>>? predicate = null)
+        {
+            if (predicate == null)
+            {
+                return this.Listar(take, skip);
+            }
+            else
+            {
+                IQueryable<Clinica.Dominio.EF.Servico> query;
+                query = this.genrepo.Searchable(take, skip, predicate);
+                return this.ConverterPara(query);
+            }
+        }
 
         public override List<ServicoPoco> ConverterPara(IQueryable<Clinica.Dominio.EF.Servico> query)
         {
