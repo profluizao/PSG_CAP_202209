@@ -23,5 +23,11 @@
         public string? MaterialUsado { get; set; }
 
         public int? DenteTratado { get; set; }
+
+        public int? DenteExtraido { get; set; }
+
+        public int? DenteCanalPar { get; set; }
+
+        public int? CodigoTipoServico { get; set; }
     }
 }

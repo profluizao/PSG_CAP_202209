@@ -173,5 +173,38 @@
             <param name="id"></param>
             <returns></returns>
         </member>
+        <member name="T:ClinicaApi.Controllers.TipoServicoController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ClinicaApi.Controllers.TipoServicoController.#ctor(Clinica.Dominio.EF.ClinicaContext)">
+            <summary>
+            
+            </summary>
+            <param name="contexto"></param>
+        </member>
+        <member name="M:ClinicaApi.Controllers.TipoServicoController.GetAll(System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            
+            </summary>
+            <param name="take"></param>
+            <param name="skip"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ClinicaApi.Controllers.TipoServicoController.GetById(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="chave"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ClinicaApi.Controllers.TipoServicoController.Post(Clinica.Poco.TipoServicoPoco)">
+            <summary>
+            
+            </summary>
+            <param name="poco"></param>
+            <returns></returns>
+        </member>
     </members>
 </doc>
