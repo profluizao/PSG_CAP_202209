@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ViajeFacilApi</name>
+    </assembly>
+    <members>
+        <member name="T:ViajeFacilApi.Controllers.TipoUsuarioController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.TipoUsuarioController.#ctor(ViajeFacil.Dominio.EF.ViajeFacilContexto)">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.TipoUsuarioController.GetAll(System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            
+            </summary>
+            <param name="take"></param>
+            <param name="skip"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.TipoUsuarioController.GetById(System.Int64)">
+            <summary>
+            
+            </summary>
+            <param name="chave"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.TipoUsuarioController.Post(ViajeFacil.Poco.TipoUsuarioPoco)">
+            <summary>
+            
+            </summary>
+            <param name="poco"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.TipoUsuarioController.Put(ViajeFacil.Poco.TipoUsuarioPoco)">
+            <summary>
+            
+            </summary>
+            <param name="poco"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.TipoUsuarioController.DeleteById(System.Int64)">
+            <summary>
+            
+            </summary>
+            <param name="chave"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
